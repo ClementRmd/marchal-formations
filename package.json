@@ -1,0 +1,40 @@
+{
+  "name": "formation-marchal",
+  "version": "1.0.0",
+  "description": "Site de formation en osteopathie",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack build --config builder/webpack.config.js --watch",
+    "build": "webpack build --config builder/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClementRmd/hypnogone.git"
+  },
+  "author": "Clement rmd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClementRmd/hypnogone/issues"
+  },
+  "homepage": "https://github.com/ClementRmd/hypnogone#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "eslint": "^7.32.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "eslint-webpack-plugin": "^3.0.1",
+    "file-loader": "^6.2.0",
+    "gulp": "^4.0.2",
+    "ignore-emit-webpack-plugin": "^2.0.6",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.41.0",
+    "sass-loader": "^12.1.0"
+  }
+}
