@@ -19,19 +19,21 @@
  *
  * @package WordPress
  */
+require_once(__DIR__ . '/builder/vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__.'/'))->load();
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
-define( 'DB_NAME', 'marchal-formations' );
+define( 'DB_NAME', $_ENV['DB_NAME'] );
 
 /** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', $_ENV['DB_USER'] );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', $_ENV['DB_HOST'] );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -86,7 +88,40 @@ $table_prefix = 'wp_';
  *
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
+define('WP_CACHE', true);
+// to force chmod file
+define('FS_CHMOD_DIR', (0755 & ~ umask()));
+define('FS_CHMOD_FILE', (0644 & ~ umask()));
+
+// Désactiver l’Éditeur d'Extension et de Thème
+define('DISALLOW_FILE_EDIT',true);
+
+/**
+ * server folder (change when you're going live)
+ */
+// $folder_serveur = PRODUCTION ? '' : '/' . basename(__DIR__);
+$folder_serveur = $_ENV['ENVIRONMENT_PROD'] !== "true"
+  ? 'localhost:8888/' . $_ENV['SERVER_PRE_PROD'] . '/'
+  : '/' . $_ENV['SERVER_PROD'] . '/';
+
+/**
+ * wp-content folder
+ */
+
+$folder_content = 'resources';
+
+$url = $_ENV['ENVIRONMENT_PROD'] !== "true"
+  ? "http"
+  : "https";
+
+define( 'WP_CONTENT_DIR',   dirname(__FILE__) . '/' . $folder_content ); // Do not remove. Removing this line could break your site. Added by Security > Settings > Change Content Directory.
+define( 'WP_CONTENT_URL',   $url . '://'.$folder_serveur . $folder_content ); // Do not remove. Removing this line could break your site. Added by Security > Settings > Change Content Directory.
+define( 'WP_PLUGIN_DIR',    WP_CONTENT_DIR . '/' . 'p' );
+define( 'WP_PLUGIN_URL',    WP_CONTENT_URL . '/' . 'p');
+define( 'PLUGINDIR',        WP_CONTENT_DIR . '/' . 'p' );
+define( 'WPMU_PLUGIN_DIR',  WP_CONTENT_DIR . '/' . 'mu-p' );
+define( 'WPMU_PLUGIN_URL',  WP_CONTENT_URL . '/' . 'mu-p');
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 
