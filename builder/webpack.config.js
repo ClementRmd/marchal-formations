@@ -70,6 +70,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(woff(2)?|ttf|eot)$/i,
+        generator: {
+          filename: 'fonts/[name].[ext]',
+        },
+        // use: [
+        //   {
+        //     loader: 'file-loader',
+        //     options: {
+        //       name: '[name].[ext]',
+        //       outputPath: 'fonts/'
+        //     }
+        //   }
+        // ]
+      },
     ],
   },
   plugins: [
@@ -85,7 +100,7 @@ module.exports = {
     }),
     new IgnoreEmitPlugin([
       'app.min.js',
-      'bundle.min.css'
+      'bundle.min.css',
     ]),
   ],
 };

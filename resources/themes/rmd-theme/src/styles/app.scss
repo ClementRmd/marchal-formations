@@ -1,3 +1,7 @@
 @import 'misc/dev';
 @import 'misc/mixin';
 @import 'misc/config';
+
+// HEADER
+@import 'views/header/header-top-bar';
+@import 'views/header/header-menu';

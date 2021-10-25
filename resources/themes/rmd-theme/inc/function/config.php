@@ -36,3 +36,4 @@ add_action(
     }
 );
 
+add_image_size( 'icon', 50, 50, false );

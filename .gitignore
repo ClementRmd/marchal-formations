@@ -1,2 +1,13 @@
 node_modules
 node_modules
+
+resources/uploads/
+resources/uploads/*
+
+resources/p/
+resources/p/*
+
+.DS_Store
+
+builder/
+builder/*
