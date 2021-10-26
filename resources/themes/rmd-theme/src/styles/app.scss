@@ -1,7 +1,12 @@
 @import 'misc/dev';
 @import 'misc/mixin';
 @import 'misc/config';
+@import 'misc/general_settings';
 
 // HEADER
 @import 'views/header/header-top-bar';
 @import 'views/header/header-menu';
+
+// HOME
+
+@import 'views/home/hero';
