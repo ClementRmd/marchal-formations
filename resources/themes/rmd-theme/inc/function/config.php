@@ -13,7 +13,7 @@ function my_style() {
 
 add_action('wp_enqueue_scripts', 'ajaxJs');
 function ajaxJs() {
-    wp_localize_script('main', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+    wp_localize_script('main', 'ajaxurl', array(admin_url( 'admin-ajax.php' )) );
 }
 
 add_action( 'after_setup_theme', 'thumbnails_theme_support' );
