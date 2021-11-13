@@ -1,0 +1,55 @@
+.home-trainings {
+    &__bloc {
+        position: relative;
+        width: 50%;
+        margin: 100px auto;
+
+        &::before,
+        &::after {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: $main-color;
+            z-index: -1;
+            content: "";
+        }
+
+        &::before {
+            top: 110px;
+            left: -100px;
+        }
+
+        &::after {
+            top: -60px;
+            right: -70px;
+        }
+
+        &__text {
+            padding: 40px 30px;
+            background-color: $white;
+            box-shadow: 1px 1px 1px 3px #D3D3D3;
+        }
+
+        &__selection {
+            display: flex;
+            justify-content: center;
+    
+            ul {
+                margin: 10px 0;
+
+                li {
+                    margin: 5px 0;
+                    padding: 10px 30px;
+                    background-color: $main-color;
+                    border-bottom-left-radius: 20px;
+                    border-top-right-radius: 20px;
+    
+                    a {
+                        font-style: italic;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
